@@ -1,7 +1,7 @@
 # Propositional logic
 
 proposition_letters = {"p", "q", "r", "s"}
-operations = {"1": "IMPLICATION", "2": "OR", "3": "AND"}
+operations = {"0": "NOT", "1": "IMPLICATION", "2": "OR", "3": "AND"}
 
 
 class Formula:
@@ -12,7 +12,7 @@ class Formula:
         self.op = op
 
     def __str__(self):
-        return f"Formula(Symbol: {self.symbol} Left: {self.left} Operation: {self.op} Right: {self.right})"
+        return f"Formula(Symbol: {self.symbol}, Left: {self.left}, Operation: {self.op}, Right: {self.right})"
 
 
 def check_formula(formula):
@@ -52,6 +52,7 @@ def parse_tree(formula):
 
 
 def clean_formula(formula):
+    formula = formula.replace("~", "0")
     formula = formula.replace("=>", "1")
     formula = formula.replace("\/", "2")
     formula = formula.replace("/\ ", "3")
