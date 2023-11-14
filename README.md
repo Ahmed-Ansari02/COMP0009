@@ -1,1 +1,1 @@
-# COMP0009
+# COMP0009 Logic parser program
